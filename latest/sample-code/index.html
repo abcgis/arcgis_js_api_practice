@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="content-language" content="en">
+    <title>Sample Code | ArcGIS API for JavaScript</title>
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../../assets/css/default.css">
+</head>
+<body>
+<developers-account-notifications></developers-account-notifications>
+<div class="wrapper">
+    <div class="secondary-nav" data-target="secondaryNav">
+        <div class="secondary-nav-container">
+            <h3 class="secondary-nav-title tablet-hide"><a href="../../" class="secondary-nav-title-link">
+                <svg class="svg-icon" viewBox="0 0 48 53">
+                    <path d="M24.16 2.12L46 8v33.66l-22.14 9.23L2 45V11.9l22.16-9.78M24 0L0 10.6v35.92L24 53l24-10V6.48L24 0zM9 11v30h30V11zm16.33 23.4c0 2.92-1.72 4.25-4.21 4.25a4.37 4.37 0 0 1-4.23-2.58l2.29-1.39c.45.79.85 1.45 1.82 1.45s1.51-.36 1.51-1.77v-9.59h2.82zM32 38.65a5.4 5.4 0 0 1-5.13-2.88l2.29-1.33a3.07 3.07 0 0 0 2.78 1.71c1.17 0 1.91-.58 1.91-1.39 0-1-.76-1.31-2.05-1.87l-.7-.3c-2-.87-3.39-2-3.39-4.25 0-2.12 1.61-3.73 4.13-3.73a4.18 4.18 0 0 1 4 2.26l-2.2 1.41a1.91 1.91 0 0 0-1.81-1.21 1.23 1.23 0 0 0-1.35 1.21c0 .84.53 1.18 1.73 1.71l.71.3c2.39 1 3.74 2.07 3.74 4.43 0 2.54-1.99 3.93-4.66 3.93z"/>
+                </svg>
+                ArcGIS JavaScript API Practice</a></h3>
+            <developers-active-toggle toggle="secondaryNavToggle" target="secondaryNavList"></developers-active-toggle>
+            <nav id="secondaryNavList" class="secondary-nav-list">
+                <ul class="secondary-nav-items" data-target="secondaryNav">
+                    <li class="secondary-nav-item">
+                        <a href="../../latest/sample-code/" class="is-active secondary-nav-link">Sample Code</a>
+                    </li>
+                </ul>
+            </nav>
+            <button id="secondaryNavToggle" class="secondary-nav-toggle" data-toggle="secondaryNav">
+                <svg class="svg-icon" viewBox="0 0 16 16">
+                    <path d="M15.5 5l-7 7-7-7z"/>
+                </svg>
+                <span class="secondary-nav-toggle-label">Menu</span></button>
+        </div>
+        <button tabindex="-1" class="secondary-nav-canvas" data-toggle="secondaryNav"></button>
+    </div>
+    <div id="skip-to-content">
+        <div class="grid-container leader-1">
+            <div class="column-6 trailer-2 tablet-hide">
+                <div class="search-sdk">
+                    <div class="search-sdk-section">
+                        <input type="text" class="input-search-sdk js-search-sdk-input js-search-sdk-tablet-hide"
+                               placeholder="Search for samples">
+                    </div>
+                </div>
+                <aside class="accordion side-nav js-accordion sample-code">
+                    <div class="accordion-section is-active">
+                        <h4 class="accordion-title">Get Started</h4>
+                        <nav class="accordion-content">
+                            <a href="../../latest/sample-code/index.html" class="side-nav-link is-active">Featured
+                                samples</a>
+                        </nav>
+                    </div>
+                    <div class="accordion-section"><h4 class="accordion-title">Latest Samples</h4>
+                        <nav class="accordion-content">
+                            <a href="../../latest/sample-code/sandbox/index.html?sample=widgets-editor-basic"
+                               target="_blank" class="side-nav-link">Edit features with the Editor widget</a>
+                        </nav>
+
+                    </div>
+                </aside>
+                <div class="column-6 scroll-show tablet-hide js-sticky" data-top="46">
+                    <a href="#" class="btn btn-fill btn-clear">Back to Top</a>
+                </div>
+            </div>
+            <div class="column-24 trailer-1 tablet-show">
+                <div class="search-sdk">
+                    <div class="search-sdk-section">
+                        <input type="text" class="input-search-sdk js-search-sdk-input"
+                               placeholder="Search for samples">
+                    </div>
+                </div>
+                <select class="select-full leader-half trailer-half js-select-nav">
+                    <optgroup label="Get Started">
+                        <option value="../../latest/sample-code/index.html" selected="selected">Featured samples
+                        </option>
+                    </optgroup>
+                    <optgroup label="Latest Samples">
+                        <option value="../../latest/sample-code/sandbox/index.html?sample=widgets-editor-basic">Edit
+                            features with the Editor widget
+                        </option>
+                    </optgroup>
+                </select>
+            </div>
+            <main class="column-17 tablet-column-12 pre-1 content-face">
+                <article>
+                    <div class="js-container-sample-code">
+                        <div class="block-group block-group-4-up tablet-block-group-3-up phone-block-group-1-up">
+                            <div class="block card animate-fade-in trailer-1">
+                                <figure class="card-image-wrap"><a
+                                        href="../../latest/sample-code/sandbox/index.html?sample=widgets-editor-basic"
+                                        target="_blank"><img
+                                        class="card-image"
+                                        src="../../assets/img/sample-code/thumbnails/widgets-editor-basic.png"
+                                        alt="widgets-editor-basic"></a>
+                                </figure>
+                                <div class="card-content"><p class="font-size--1 card-last trailer-1">Edit features
+                                    with the Editor widget</p>
+                                    <div class="open-out-container">
+                                        <button class="open-out-icon open-out-icon-hidden icon-ui-download js-btn-save-file"
+                                                data-save-file-name="widgets-editor-basic"
+                                                data-save-file="../../latest/sample-code/widgets-editor-basic/live/index.html"
+                                                title="Download"></button>
+                                        <a class="open-out-icon icon-ui-experimental"
+                                           href="../../latest/sample-code/sandbox/index.html?sample=widgets-editor-basic"
+                                           target="_blank" title="sandbox"></a>
+                                        <a class="open-out-icon icon-ui-link-external js-btn-jsshare"
+                                           data-jsshare-url="../../latest/sample-code/widgets-editor-basic/live/index.html"
+                                           target="_blank" title="codepen"></a>
+                                        <a class="open-out-icon icon-ui-browser"
+                                           href="../../latest/sample-code/widgets-editor-basic/live/index.html"
+                                           target="_blank" title="live"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-sdk-results hide js-search-sdk-results"><h1 class="js-search-sdk-results-header">
+                        Sample search results</h1>
+                        <div class="js-search-sdk-results-tags"></div>
+                        <div class="trailer-1 clearfix">
+                            <div class="right js-toggle-view">
+                                <button class="view-toggle-btn is-active btn-grouped js-toggle-view-btn icon-ui-basemap icon-ui-flush"
+                                        data-toggle-view-target="cards"></button>
+                                <button class="view-toggle-btn btn-grouped js-toggle-view-btn icon-ui-table icon-ui-flush"
+                                        data-toggle-view-target="table"></button>
+                            </div>
+                        </div>
+                        <div class="block-group block-group-4-up tablet-block-group-3-up phone-block-group-1-up js-search-sdk-results-cards"></div>
+                        <table class="table table-striped hide js-search-sdk-results-table">
+                            <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Sample</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="panel-no-border hide js-search-sdk-no-results"></div>
+                    <div class="loader js-loader">
+                        <div class="loader-content">
+                            <div class="loader-bars"></div>
+                            <div class="loader-text">Loading...</div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+</div>
+<script>var relativePath = document.URL.replace(/[-\w\d]*\.(html|css|js).*/, "../..")</script>
+<script src="../../assets/js/config.js"></script>
+<script src="../../assets/js/preparse.js"></script>
+<script src="../../assets/js/developers-components/sharedComponents.js"></script>
+<script src="../../assets/js/libs/FileSaver.js"></script>
+<div class="js-modal modal-overlay modifier-class" data-modal="modal-keyboard-shortcuts">
+    <div class="modal-content columns-16" aria-label="modal" role="dialog"><a class="js-modal-toggle right" href="#"
+                                                                              aria-label="close-modal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 32 32" class="svg-icon">
+            <path d="M18.404 16l9.9 9.9-2.404 2.404-9.9-9.9-9.9 9.9L3.696 25.9l9.9-9.9-9.9-9.898L6.1 3.698l9.9 9.899 9.9-9.9 2.404 2.406-9.9 9.898z"/>
+        </svg>
+    </a><h4>Keyboard shortcuts</h4>
+        <hr class="leader-0 trailer-half">
+        <div class="column-7">
+            <table class="table-plain keyboard-mappings">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Site wide shortcuts</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Bring up this help dialog</td>
+                </tr>
+                <tr>
+                    <td><kbd>esc</kbd></td>
+                    <td>Dismiss this help dialog</td>
+                </tr>
+                <tr>
+                    <td><kbd>g</kbd><kbd>h</kbd></td>
+                    <td>Go to Home</td>
+                </tr>
+                <tr>
+                    <td><kbd>g</kbd><kbd>g</kbd></td>
+                    <td>Go to Guide</td>
+                </tr>
+                <tr>
+                    <td><kbd>g</kbd><kbd>a</kbd></td>
+                    <td>Go to API Reference</td>
+                </tr>
+                <tr>
+                    <td><kbd>g</kbd><kbd>s</kbd></td>
+                    <td>Go to Sample Code</td>
+                </tr>
+                <tr>
+                    <td><kbd>g</kbd><kbd>t</kbd></td>
+                    <td>Scroll to top of page</td>
+                </tr>
+                <tr>
+                    <td><kbd>spacebar</kbd></td>
+                    <td>Scroll page down</td>
+                </tr>
+                <tr>
+                    <td><kbd>shift spacebar</kbd></td>
+                    <td>Scroll page up</td>
+                </tr>
+                <tr>
+                    <td><kbd>g</kbd><kbd>b</kbd></td>
+                    <td>Scroll to bottom of page</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="column-7">
+            <table class="table-plain keyboard-mappings">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Sample Code</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><kbd>/</kbd></td>
+                    <td>Focus search</td>
+                </tr>
+                <tr>
+                    <td><kbd>esc</kbd></td>
+                    <td>Remove search focus</td>
+                </tr>
+                <tr>
+                    <td><kbd>enter</kbd></td>
+                    <td>Focus first search result</td>
+                </tr>
+                <tr>
+                    <td><kbd>e</kbd><kbd>s</kbd></td>
+                    <td>Explore in the Sandbox</td>
+                </tr>
+                <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Share in online code editor</td>
+                </tr>
+                <tr>
+                    <td><kbd>v</kbd><kbd>l</kbd></td>
+                    <td>View live example</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="../../assets/js/libs/url-search-params.js"></script>
+<script src="../../assets/js/calcite-web.js"></script>
+<script src="../../assets/js/calcite-web-extend.js"></script>
+<script src="../../assets/js/libs/mousetrap.js"></script>
+<script>"function" == typeof Mousetrap && "object" == typeof calcite && "function" == typeof Mousetrap && "object" == typeof calcite && Mousetrap.bind(["/", "e s", "s", "v l", "g h", "g g", "g a", "g s", "?", "g t", "g b"], function (e, t) {
+    calcite.bus.emit("keyboard:mousetrap", {
+        event: e,
+        combination: t,
+        navigation: {
+            h: "../../index.html",
+            g: "../../latest/guide/index.html",
+            a: "../../latest/api-reference/index.html",
+            s: "../../latest/sample-code/index.html"
+        }
+    })
+})</script>
+</body>
+</html>
