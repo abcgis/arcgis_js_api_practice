@@ -2764,6 +2764,8 @@ html[dir="rtl"] .list-numbered > li:before { left: auto; right: 0; padding: 0 0 
 
 .list-plain li { list-style-type: none; margin-left: 0; }
 
+.font-size--5 { font-size: 0.7125rem; line-height: 1.5; }
+
 .font-size--4 { font-size: 0.775rem; line-height: 1.5; }
 
 .font-size--3 { font-size: 0.8125rem; line-height: 1.5; }

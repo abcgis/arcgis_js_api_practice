@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>天地图全球境界(经纬度) - 4.x</title>
+    <title>天地图边界、水系(经纬度) - 4.x</title>
 
     <!-- 用4.12的api会报错  -->
-    <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css"/>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.10/"></script>
 
     <style>
@@ -26,8 +26,9 @@
             "esri/layers/WebTileLayer",
             'esri/layers/support/TileInfo',
             'esri/views/MapView',
+            "esri/widgets/LayerList",
             'dojo/domReady!'
-        ], function (Map, WebTileLayer, TileInfo, MapView) {
+        ], function (Map, WebTileLayer, TileInfo, MapView, LayerList) {
             var tiandituBaseUrl = "http://{subDomain}.tianditu.com"; //天地图服务地址
             var token = "174705aebfe31b79b3587279e211cb9a"; //天地图token
 
@@ -65,11 +66,34 @@
                     {level: 19, levelValue: 19, resolution: 2.68220901489257815e-006, scale: 1127.23386023998275},
                     {level: 20, levelValue: 2, resolution: 1.341104507446289075e-006, scale: 563.616930119991375}
                 ]
-            })
+            });
 
-            //地图(经纬度)
+            //矢量地图(经纬度)
             var tiledLayer = new WebTileLayer({
+                urlTemplate: tiandituBaseUrl + "/DataServer?T=vec_c&x={col}&y={row}&l={level}&tk=" + token,
+                subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
+                tileInfo: tileInfo
+            });
+
+            //矢量注记(经纬度)
+            var tiledLayerAnno = new WebTileLayer({
+                urlTemplate: tiandituBaseUrl + "/DataServer?T=cva_c&x={col}&y={row}&l={level}&tk=" + token,
+                subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
+                tileInfo: tileInfo
+            });
+
+            //边界(经纬度)
+            var iboLayer = new WebTileLayer({
+                title: "边界",
                 urlTemplate: tiandituBaseUrl + "/DataServer?T=ibo_c&x={col}&y={row}&l={level}&tk=" + token,
+                subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
+                tileInfo: tileInfo
+            });
+
+            //水系(经纬度)
+            var waterLayer = new WebTileLayer({
+                title: "水系",
+                urlTemplate: tiandituBaseUrl + "/DataServer?T=wat_c&x={col}&y={row}&l={level}&tk=" + token,
                 subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
                 tileInfo: tileInfo
             });
@@ -80,8 +104,9 @@
                     wkid: 4326
                 },
                 basemap: {
-                    baseLayers: [tiledLayer]
-                }
+                    baseLayers: [tiledLayer, tiledLayerAnno]
+                },
+                layers: [iboLayer, waterLayer]
             });
 
             var view = new MapView({
@@ -90,10 +115,20 @@
                     wkid: 4326
                 },
                 map: map,
-                center: [121.67, 42.01],
+                center: [108.953098279, 34.2777998978],
                 //1:scale的图
-                scale: 2000000
+                scale: 30000000
             });
+
+            view.when(function () {
+                var layerList = new LayerList({
+                    view: view
+                });
+
+                // Add widget to the top right corner of the view
+                view.ui.add(layerList, "top-right");
+            });
+
 
         });
     </script>
