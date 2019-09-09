@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>坐标转换 - 3.x</title>
+
+    <script>
+        //dojoConfig必须在init.js引入之前配置
+        var dojoConfig = {
+            packages: [
+                {name: "js_api_extent", location: "/arcgis_js_api_practice/latest/sample-code/3.x/js_api_extent"}
+            ]
+        };
+    </script>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.29/esri/css/esri.css"/>
+    <script src="https://js.arcgis.com/3.29/"></script>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<script>
+    require([
+        "esri/map",
+        "js_api_extent/layers/TdtLayer",//TdtLayer.js文件必须define定义的模块
+        "dojo/parser",
+        "esri/geometry/Point",
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/symbols/SimpleLineSymbol",
+        "esri/Color",
+        "esri/geometry/webMercatorUtils",
+        "esri/graphic",
+        "dojo/domReady!"
+    ], function (Map,
+                 TdtLayer,
+                 parser,
+                 Point,
+                 SimpleMarkerSymbol,
+                 SimpleLineSymbol,
+                 Color,
+                 webMercatorUtils,
+                 Graphic
+    ) {
+        parser.parse();
+        var map = new Map("viewDiv", {
+            logo: false,
+            center: [108.953098279, 34.2777998978],
+            zoom: 3
+        });
+        var tdtLayer = new TdtLayer({layertype: "road"});
+        map.addLayer(tdtLayer);
+
+        var tdtLayerAnno = new TdtLayer({layertype: "label"});
+        map.addLayer(tdtLayerAnno);
+
+        //定义图标
+        var symbol = new SimpleMarkerSymbol(
+            SimpleMarkerSymbol.STYLE_CIRCLE,
+            12,
+            new SimpleLineSymbol(
+                SimpleLineSymbol.STYLE_NULL,
+                new Color([247, 34, 101, 0.9]),
+                1
+            ),
+            new Color([207, 34, 171, 0.5])
+        );
+        //核心，绑定点击事件
+        map.on("click", function (evt) {
+            //墨卡托转经纬度
+            // var mp = webMercatorUtils.webMercatorToGeographic(evt.mapPoint);
+
+            //经纬度转墨卡托
+            var mp = webMercatorUtils.geographicToWebMercator(evt.mapPoint);
+            map.graphics.clear();
+            map.graphics.add(new Graphic(evt.mapPoint, symbol));
+            map.infoWindow.setContent("Longitude=" + evt.mapPoint.x + "<br>Latitude=" + evt.mapPoint.y + "<br><br>x: " + mp.x.toString() + "<br>y: " + mp.y.toString());
+            map.infoWindow.show(evt.mapPoint);
+        });
+
+    });
+</script>
+
+<body>
+<div id="viewDiv"></div>
+</body>
+</html>
