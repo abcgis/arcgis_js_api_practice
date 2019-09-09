@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>天地图矢量(球面墨卡托) - 4.x</title>
+    <title>天地图地形(球面墨卡托) - 4.x</title>
 
     <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.12/"></script>
@@ -36,21 +36,21 @@
                 container: "viewDiv",
                 map: map,
                 scale: 123456789,
-                center: [-65, -15]
+                center: [108.953098279, 34.2777998978]
             });
 
-            //矢量地图(球面墨卡托投影)
+            //地形地图(球面墨卡托投影)
             var tiledLayer = new WebTileLayer({
                 urlTemplate:
-                tiandituBaseUrl + "/vec_w/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=vec&STYLE=default&FORMAT=tiles&TILEMATRIXSET=w&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=" + token,
+                tiandituBaseUrl + "/ter_w/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=ter&STYLE=default&FORMAT=tiles&TILEMATRIXSET=w&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=" + token,
                 subDomains:
                     ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"]
             });
 
-            //矢量注记(球面墨卡托投影)
+            //地形注记(球面墨卡托投影)
             var tiledLayerAnno = new WebTileLayer({
                 urlTemplate:
-                tiandituBaseUrl + "/cva_w/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=cva&STYLE=default&FORMAT=tiles&TILEMATRIXSET=w&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=" + token,
+                tiandituBaseUrl + "/cta_w/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=cta&STYLE=default&FORMAT=tiles&TILEMATRIXSET=w&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=" + token,
                 subDomains:
                     ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"]
             });

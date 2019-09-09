@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>天地图地形(经纬度) - 4.x</title>
+    <title>天地图矢量(经纬度) - 4.x</title>
 
     <!-- 用4.12的api会报错  -->
     <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css"/>
@@ -67,16 +67,16 @@
                 ]
             })
 
-            //地图(经纬度)
+            //矢量地图(经纬度)
             var tiledLayer = new WebTileLayer({
-                urlTemplate: tiandituBaseUrl + "/DataServer?T=ter_c&x={col}&y={row}&l={level}&tk=" + token,
+                urlTemplate: tiandituBaseUrl + "/DataServer?T=vec_c&x={col}&y={row}&l={level}&tk=" + token,
                 subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
                 tileInfo: tileInfo
             });
 
-            //注记(经纬度)
+            //矢量注记(经纬度)
             var tiledLayerAnno = new WebTileLayer({
-                urlTemplate: tiandituBaseUrl + "/DataServer?T=cta_c&x={col}&y={row}&l={level}&tk=" + token,
+                urlTemplate: tiandituBaseUrl + "/DataServer?T=cva_c&x={col}&y={row}&l={level}&tk=" + token,
                 subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
                 tileInfo: tileInfo
             });
@@ -97,7 +97,7 @@
                     wkid: 4326
                 },
                 map: map,
-                center: [121.67, 42.01],
+                center: [108.953098279, 34.2777998978],
                 //1:scale的图
                 scale: 2000000
             });
