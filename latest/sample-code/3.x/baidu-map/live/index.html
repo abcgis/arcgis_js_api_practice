@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>百度地图 - 3.x</title>
+    <script>
+        //dojoConfig必须在init.js引入之前配置
+        var dojoConfig = {
+            packages: [
+                {name: "js_api_extent", location: "/arcgis_js_api_practice/latest/sample-code/3.x/js_api_extent"}
+            ]
+        };
+    </script>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.29/esri/css/esri.css"/>
+    <script src="https://js.arcgis.com/3.29/"></script>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        require([
+            "esri/map",
+            "js_api_extent/layers/BaiduLayer",//BaiduLayer.js文件必须define定义的模块
+            "dojo/parser",
+            'dojo/domReady!'
+        ], function (Map, GaodeLayer, parser) {
+            parser.parse();
+            var map = new Map("viewDiv", {
+                logo: false,
+                center: [108.953098279, 34.2777998978],
+                zoom: 4
+            });
+            var baiduLayer = new BaiduLayer({layertype: "road"});
+            map.addLayer(baiduLayer);
+
+            var baiduLayerAnno = new BaiduLayer({layertype: "label"});
+            map.addLayer(baiduLayerAnno);
+
+        });
+    </script>
+</head>
+
+<body>
+<div id="viewDiv"></div>
+</body>
+</html>
