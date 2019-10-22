@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Heatmap - 4.x</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/themes/light/main.css"/>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <script src="https://js.arcgis.com/4.12/"></script>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/widgets/Legend"
+        ], function (Map, MapView, FeatureLayer, Legend) {
+            const map = new Map({
+                basemap: "topo"
+            });
+
+            const featureLayer = new FeatureLayer({
+                url:
+                    "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0"
+            });
+
+            featureLayer.renderer = {
+                type: "heatmap",
+                field: "pop2000",
+                colorStops: [
+                    {color: "rgba(63, 40, 102, 0)", ratio: 0},
+                    {color: "#64a89c", ratio: 0.2},
+                    {color: "#62be81", ratio: 0.3},
+                    {color: "#18dd00", ratio: 0.4},
+                    {color: "#e7e945", ratio: 0.5},
+                    {color: "#ffdc66", ratio: 0.6},
+                    {color: "#fe735f", ratio: 0.7},
+                    {color: "#e05819", ratio: 0.8},
+                    {color: "#ff141b", ratio: 1}
+                ],
+                minPixelIntensity: 0,
+                maxPixelIntensity: 3000000
+            };
+
+            map.add(featureLayer);
+
+            const view = new MapView({
+                container: "viewDiv",
+                map: map,
+                extent: {
+                    xmin: -158.176464137 * 20037508.34 / 180,
+                    ymin: (Math.log(Math.tan((90 + 19.702481852000005) * Math.PI / 360)) / (Math.PI / 180)) * 20037508.34 / 180,
+                    xmax: -68.78301209099999 * 20037508.34 / 180,
+                    ymax: (Math.log(Math.tan((90 + 64.84830189399997) * Math.PI / 360)) / (Math.PI / 180)) * 20037508.34 / 180,
+                    spatialReference: {
+                        wkid: 102100
+                    }
+                }
+            });
+
+            view.ui.add(
+                new Legend({
+                    view: view
+                }),
+                "bottom-left"
+            );
+
+        });
+    </script>
+</head>
+
+<body>
+<div id="viewDiv"></div>
+</body>
+</html>
