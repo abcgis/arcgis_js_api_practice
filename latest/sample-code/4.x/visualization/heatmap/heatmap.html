@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>heatmap.js demo</title>
+    <script type="text/javascript" src="../../../../../assets/js/heatmap/heatmap.js"></script>
+</head>
+<body>
+<div id="heatmap" style="height: 600px; width: 90%;margin: 10px"></div>
+<script type="text/javascript">
+    // minimal heatmap instance configuration
+    var heatmapInstance = h337.create({
+        // only container is required, the rest will be defaults
+        container: document.querySelector('#heatmap')
+    });
+
+    // now generate some random data
+    var points = [];
+    var max = 0;
+    var width = 840;
+    var height = 400;
+    var len = 200;
+
+    while (len--) {
+        var val = Math.floor(Math.random() * 100);
+        max = Math.max(max, val);
+        var point = {
+            x: Math.floor(Math.random() * width),
+            y: Math.floor(Math.random() * height),
+            value: val
+        };
+        points.push(point);
+    }
+    // heatmap data format
+    var data = {
+        max: max,
+        data: points
+    };
+    // if you have a set of datapoints always use setData instead of addData
+    // for data initialization
+    heatmapInstance.setData(data);
+</script>
+</body>
+</html>
